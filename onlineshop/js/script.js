@@ -17,9 +17,9 @@ $(document).ready(function () {
 
     $('.responsive').slick({
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 300,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,

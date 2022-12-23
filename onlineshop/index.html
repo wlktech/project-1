@@ -14,6 +14,7 @@
     <script src="./js/slick.min.js"></script>
 </head>
 <body>
+<div id="preloader"></div>
 <!-- nav start -->
     <nav class="navbar navbar-dark text-light bg-secondary" id="navbar">
         <div class="container">
@@ -445,7 +446,11 @@
 </div>
 <!-- Latest New End -->
 
-
+<div class="preloader">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/JmOzco_KT3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/JmOzco_KT3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/JmOzco_KT3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 
 <!-- footer start -->
@@ -490,5 +495,11 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/popper.js"></script>
     <script src="./js/script.js"></script>
+    <script>
+        var loader = document.getElementById('preloader');
+        window.addEventListener("load", function(){
+        loader.style.display = "none";
+        })
+    </script>
 </body>
 </html>

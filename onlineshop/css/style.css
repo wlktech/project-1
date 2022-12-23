@@ -8,6 +8,19 @@
 }
 
 
+#preloader{
+    background: #FFFBF5 url(../img/preloader.gif) no-repeat center center;
+    background-size: 40%;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 10000;
+
+}
+.preloader{
+    visibility: hidden;
+    display: none;
+}
 /* Carousel */
 .carousel_text{
     position: absolute;
@@ -138,5 +151,12 @@
 .form:focus{
     border: 3px solid rgb(161, 232, 255);
     outline: none;
+}
+.divider{
+    background-color: rgb(216, 2, 2);
+    width: 10px;
+    height: 50px;
+    padding-left: 5px;
+    margin-right: 10px;
 }
 /* promotion */
