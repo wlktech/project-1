@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>NR-Noise Reducer</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body data-bs-spy="scroll">
+<!-- navbar start -->
+<nav class="navbar text-light bg-secondary py-1" id="home">
+    <div class="container">
+        <span class="me-2 d-none d-lg-block">
+            <i class="fa-solid fa-envelope"></i> 
+            contact@noisereducer.com
+        </span>
+        <span class="me-auto">
+            <i class="fa-solid fa-phone-volume"></i> 
+            +95 9421023714
+        </span>
+        <span>
+            Follow Us : 
+                <a class="text-white" href=""><i class="fa-brands fa-facebook"></i></a>
+                <a class="text-white" href=""><i class="fa-brands fa-twitter ps-2"></i></a>
+                <a class="text-white" href=""><i class="fa-brands fa-instagram ps-2"></i></a>
+        </span>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img class="me-2 rounded" src="assets/img/logo.jpg" width="50px" alt="">
+            NR-Noise Reducer
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="promotion.html">PROMOTIONS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.html">PRODUCTS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="badge bg-danger" id="count_number"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- navbar end -->
+
+<!-- Checkout Start -->
+<div class="container mt-5 mb-5">
+    <h2 class="text-center my-5">Checkout Lists</h2>
+    <h5 class="alert" id="success"></h5>
+
+    <div class="table-responsive-xl">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Item Name</th>
+                    <th>Descriptions</th>
+                    <th>Item Price</th>
+                    <th>Quantity</th>
+                    <th>Sub Total</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-outline-secondary" id="buy">Buy Now</button>
+    
+</div>
+<div class="container" id="deliInfo">
+    <div class="row">
+        <h3 class="text-center">Delivery Information</h3>
+        <div class="col-xl-6">
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                <label for="fname">First Name</label>
+            </div>
+            <small class="text-danger" id="name_warn"></small>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                <label for="lname">Last Name</label>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-floating mb-3 mt-3">
+                <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+                <label for="email">Email</label>
+            </div>
+            <small class="text-danger" id="email_warn"></small>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-floating mb-3 mt-3">
+                <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+                <label for="phone">Phone</label>
+            </div>
+            <small class="text-danger" id="phone_warn"></small>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" class="form-control" id="address" placeholder="Enter address" name="address">
+                <label for="address">Address</label>
+            </div>
+            <small class="text-danger" id="address_warn"></small>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-floating my-3">
+                <select class="form-select" id="sel1" name="sellist">
+                  <option>KBZ Pay</option>
+                  <option>Wave Money</option>
+                  <option>AYA Pay</option>
+                  <option>CB Pay</option>
+                </select>
+                <label for="sel1" class="form-label">Payment Methods:</label>
+            </div>
+            <small class="text-danger" id="payment_warn"></small>
+        </div> 
+        <button class="btn btn-outline-secondary w-25 m-auto my-5" id="order">Order Now</button>         
+    </div>
+    
+</div>
+<!-- Checkout End -->
+
+
+<!-- Service Start -->
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+        <div class="col">
+            <div class="card pt-3 my-2">
+                <div class="row">
+                    <div class="col-3 col-md-3 text-center">
+                        <i class="fa-solid fa-truck-fast fa-2x ps-4 pt-2"></i>
+                    </div>
+                    <div class="col-9 col-md-9">
+                        <p class="pb-0 mb-0">Fast & Free Shipping</p>
+                        <p class="text-secondary">For orders from $50</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card pt-3 my-2">
+                <div class="row">
+                    <div class="col-3 col-md-3 text-center">
+                        <i class="fa-solid fa-headset fa-2x ps-4 pt-2"></i>
+                    </div>
+                    <div class="col-9 col-md-9">
+                        <p class="pb-0 mb-0">Support 24/7</p>
+                        <p class="text-secondary">Call us anytime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card pt-3 my-2">
+                <div class="row">
+                    <div class="col-3 col-md-3 text-center">
+                        <i class="fa-solid fa-shield-halved fa-2x ps-4 pt-2"></i>
+                    </div>
+                    <div class="col-9 col-md-9">
+                        <p class="pb-0 mb-0">100% Safety</p>
+                        <p class="text-secondary">Only secure payments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card pt-3 my-2">
+                <div class="row">
+                    <div class="col-3 col-md-3 text-center">
+                        <i class="fa-solid fa-gift fa-2x ps-4 pt-2"></i>
+                    </div>
+                    <div class="col-9 col-md-9">
+                        <p class="pb-0 mb-0">Gift Promotion</p>
+                        <p class="text-secondary">Discount up to 90%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+
+
+<!-- footer start -->
+<footer class="container-fluid bg-dark textColor pt-4 pb-2" id="contact">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col-xl-4 my-3">
+                <h4>NR-Noise Reducer</h4>
+                <small class="d-block mb-3">Let's Make a Peaceful Place With Us!</small>
+                <p align="justify" class="pe-5">Our Products are from export and full quality. Then, products can be used by DIY. Therefore, you can easily install in your room. And there are different colors and sizes.</p>
+            </div>
+
+            <div class="col-xl-4 my-3">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#home" class="nav-link textColor mb-5">Home</a>
+                        <a href="#about" class="nav-link textColor mb-5">About</a>
+                        <a href="#promotion" class="nav-link textColor mb-5">Promotions</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#product" class="nav-link textColor mb-5">Products</a>
+                        <a href="#service" class="nav-link textColor mb-5">Service</a>
+                        <a href="#contact" class="nav-link textColor mb-5">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 my-2">
+                <p><i class="fa-solid fa-house mb-3"></i> 28, 4th Ward, South Okkalarpa Tsp, Yangon.</p>
+                <p><i class="fa-solid fa-phone-volume mb-3"></i>  +959 421023714</p>
+                <p><i class="fa-solid fa-envelope pe-1 mb-3"></i> contact@noisereducer.com</p>
+                <p>
+                    <a href=""><i class="fa-brands fa-twitter-square textColor"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook ms-2 textColor"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram ms-2 textColor"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <p class="text-center textColor">&copy; Copyright: All Rights Reserved By <a class="navbar-link textColor text-decoration-none" href="">WLK-TECH</a></p>
+</footer>
+<!-- footer end -->
+
+
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="https://kit.fontawesome.com/b829c5162c.js" crossorigin="anonymous"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/count.js"></script>
+    <script>
+        $(document).ready(function(){
+            getData();
+            count();
+            function getData(){
+                let itemGetData = localStorage.getItem('shops');
+                if(itemGetData){
+                    let itemDataArray = JSON.parse(itemGetData);
+                    let data = '';
+                    let j = 1;
+                    //total Calculation
+                    let total = 0;
+                    $.each(itemDataArray, function(i, v){
+                        data += `<tr>
+                            <td>${j++}</td>
+                            <td>${v.item_name}</td>
+                            <td>${v.item_description}</td>
+                            <td>${v.item_price}</td>
+                            <td><button class="btn btn-sm btn-outline-secondary min" data-item_i="${i}">-</button>${v.qty}<button class="btn btn-sm btn-outline-secondary max" data-item_i="${i}">+</button></td>
+                            <td>${v.qty*v.item_price}</td>
+                        </tr>`
+                        total += v.item_price * v.qty;
+                    })
+                    data += `<td colspan="5">Total</td> <td>${total}</td>`;
+                    $('#tbody').html(data);
+                }else{
+                    let data = '';
+                    $('#tbody').html(data);
+                }
+            }
+                $('#tbody').on('click', '.min', function(){
+                    let item_i = $(this).data('item_i');
+                    let itemStr = localStorage.getItem('shops');
+                    if(itemStr){
+                        let itemArr = JSON.parse(itemStr);
+                        $.each(itemArr, function(i,v){
+                            if(item_i == i){
+                                v.qty--;
+                                if(v.qty == 0){
+                                    //item delete 
+                                    itemArr.splice(item_i, 1);
+                                }
+                            }
+                        })
+    
+                        let itemData = JSON.stringify(itemArr);
+                        localStorage.setItem('shops', itemData);
+                        getData();
+                        count();
+                    }
+                })
+                $('#tbody').on('click', '.max', function(){
+                    let item_i = $(this).data('item_i');
+                    let itemStr = localStorage.getItem('shops');
+                    if(itemStr){
+                        let itemArr = JSON.parse(itemStr);
+                        $.each(itemArr, function(i,v){
+                            if(item_i == i){
+                                v.qty++;
+                            }
+                        })
+    
+                        let itemData = JSON.stringify(itemArr);
+                        localStorage.setItem('shops', itemData);
+                        getData();
+                        count();
+                    }
+                })
+    
+    
+                $('#order').click(function(){
+                    getData();
+                    count();
+                    let fname = $("#fname").val();
+                    let lname = $("#lname").val();
+                    let email = $("#email").val();
+                    let phone = $("#phone").val();
+                    let address = $("#address").val();
+
+                    if (fname == "" || lname == "" || email =="" || phone=="" || address == "") {
+                        if(fname=="" || lname==""){
+                            $("#name_warn").text("*Name must be filled out");
+                        }
+                        if(email==""){
+                            $("#email_warn").text("*Email must be filled out");
+                        }
+                        if(phone==""){
+                            $("#phone_warn").text("*Phone must be filled out");
+                        }
+                        if(address==""){
+                            $("#address_warn").text("*Address must be filled out");
+                        }
+                        // alert("Name must be filled out");
+                        return false;
+                    }else{
+                        $("#name_warn").text("");
+                        $("#email_warn").text("");
+                        $("#phone_warn").text("");
+                        $("#address_warn").text("");
+                        $("#deliInfo").hide('slow');
+                        $('#success').addClass('alert-success');
+                        $('#success').text('You have ordered successfully.');
+                        localStorage.clear();
+                        getData();
+                        count();
+
+                    }
+                })
+            
+        })
+    </script>
+
+</body>
+</html>
