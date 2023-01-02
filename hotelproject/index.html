@@ -13,25 +13,60 @@
 </head>
 <body>
 <!-- nav start -->
-<nav class="navbar text-light bg-dark py-1" id="home">
+<nav class="navbar text-light bg-dark py-1 d-none d-lg-block" id="home">
     <div class="container">
-        <span class="me-2 d-none d-lg-block">
-            <i class="fa-solid fa-envelope"></i> 
-            contact@royalpalacehotel.com
-        </span>
-        <span class="me-auto">
-            <i class="fa-solid fa-phone-volume"></i> 
-            +95 9421023714
-        </span>
-        <span>
-            Follow Us : 
-                <a class="text-white" href=""><i class="fa-brands fa-facebook"></i></a>
-                <a class="text-white" href=""><i class="fa-brands fa-twitter ps-2"></i></a>
-                <a class="text-white" href=""><i class="fa-brands fa-instagram ps-2"></i></a>
-        </span>
+            <div class="subnav">
+                <button class="subnavbtn">
+                    <i class="fa-solid fa-circle-user me-1"></i>
+                    SELECT PROFILE
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="subnav-content">
+                    <div class="container">
+                        <div class="profile-title d-inline-block">
+                            <h3 class="goldText">SELECT YOUR PROFILE</h3>
+                            <p class="text-dark">Pick a profile that suits your visit best.</p>
+                        </div>
+                        <div class="profile-nav ms-auto d-inline-block">
+                            <a class="link" href="#business">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <p>Business Traveller</p> 
+                            </a>
+                            <a class="link" href="#romantic">
+                                <i class="fa-solid fa-champagne-glasses"></i>
+                                <p>Romantic Escape</p>
+                            </a>
+                            <a class="link" href="#family">
+                                <i class="fa-solid fa-people-roof fa-2x"></i>
+                                <p>Family Fun</p>
+                            </a>
+                            <a class="link" href="#group">
+                                <i class="fa-solid fa-people-group"></i>
+                                <p>Group Adventure</p> 
+                            </a>
+                            <a class="link" href="#dining">
+                                <i class="fa-solid fa-bowl-food"></i>
+                                <p>Dining Enthusiast</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <span>
+                Follow Us : 
+                    <a class="text-white" href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a class="text-white" href=""><i class="fa-brands fa-twitter ps-2"></i></a>
+                    <a class="text-white" href=""><i class="fa-brands fa-instagram ps-2"></i></a>
+            </span>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><img src="assets/img/eng.png" width="20px" alt=""> English</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"><img src="assets/img/myanmar.jpg" width="20px" alt=""> Myanmar</a></li>
+                </ul>
+            </div>
     </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-light shadow-lg sticky-top">
+<nav class="navbar navbar-line navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="index.html">
             <img class="me-2 d-inline-block" src="assets/img/bagan-logo.png" width="80px" alt="">
@@ -40,11 +75,29 @@
                 <span class="logo-service d-inline-block">HOTELS & RESORTS</span>
             </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="Navbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="text-decoration-none text-dark d-block my-3" href="">
+                        <i class="fa-solid fa-list"></i> Manage Booking
+                    </a>
+                </li>
+                <li class="nav-item ms-5">
+                    <a class="text-decoration-none text-dark d-block my-3" href="">
+                        <i class="fa-solid fa-circle-user"></i> Sign In/Up & Save 10%
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<nav class=" d-none d-lg-block navbar-light shadow-lg">
+    <div class="container">
+        <div>
+            <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
                     <a class="nav-link" href="#home">HOME</a>
                 </li>
@@ -52,24 +105,106 @@
                     <a class="nav-link" href="#about">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="promotion.html">PROMOTIONS</a>
+                    <a class="nav-link" href="promotion.html">SERVICES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product.html">PRODUCTS</a>
+                    <a class="nav-link" href="product.html">ROOMS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">BLOGS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">CONTACT</a>
-                </li>
-                <li class="nav-item">
-                    <a href="checkout.html" class="nav-link">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="badge bg-danger" id="count_number"></span>
-                    </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="offcanvas offcanvas-end" id="sidebar">
+    <div class="offcanvas-header">
+      <img src="assets/img/bagan-logo.png" class="w-25" alt="">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="container">
+            <a class="text-decoration-none text-dark d-block my-3" href="">
+                <i class="fa-solid fa-circle-user"></i> Sign In/Up & Save 10%
+            </a>
+            <a class="text-decoration-none text-dark d-block my-3" href="">
+                <i class="fa-solid fa-list"></i> Manage Booking
+            </a>
+            <hr class="line">
+            
+            <a href="" class="text-decoration-none text-dark d-block my-3">HOME</a>
+            <a href="" class="text-decoration-none text-dark d-block my-3">ABOUT</a>
+            <a href="" class="text-decoration-none text-dark d-block my-3">SERVICES</a>
+            <a href="" class="text-decoration-none text-dark d-block my-3">ROOMS</a>
+            <a href="" class="text-decoration-none text-dark d-block my-3">BLOGS</a>
+            <a href="" class="text-decoration-none text-dark d-block my-3">CONTACT</a>
+            <hr class="line">
+            <button class="btn btn-dark w-100 text-center my-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#profileSelect">
+                <i class="fa-solid fa-circle-user"></i>
+                Select Your Profile
+            </button>
+            <button class="btn btn-dark text-white dropdown w-100">
+                <a class="text-decoration-none text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><img src="assets/img/eng.png" width="20px" alt=""> English</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"><img src="assets/img/myanmar.jpg" width="20px" alt=""> Myanmar</a></li>
+                </ul>
+            </button>
+        </div>
+       
+    </div>
+</div>
+<div class="offcanvas offcanvas-end" id="profileSelect">
+    <div class="offcanvas-header">
+        <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <i class="fa-solid fa-arrow-left"></i> Back To Menu
+        </button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="container">
+            <div class="profile-title">
+                <h3 class="goldText">SELECT YOUR PROFILE</h3>
+                <p class="text-dark">Pick a profile that suits your visit best.</p>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <a class="side-link text-decoration-none" href="#business">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <p>Business Traveller</p> 
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="side-link text-decoration-none" href="#romantic">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                        <p>Romantic Escape</p>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="side-link text-decoration-none" href="#family">
+                        <i class="fa-solid fa-people-roof fa-2x"></i>
+                        <p>Family Fun</p>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="side-link text-decoration-none" href="#group">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Group Adventure</p> 
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="side-link text-decoration-none" href="#dining">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <p>Dining Enthusiast</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
 <!-- nav end -->
 
 
