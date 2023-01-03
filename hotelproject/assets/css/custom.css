@@ -10,20 +10,23 @@
     border: 1px solid #AD8E3D;
 }
 .logo-service{
-    position: relative;
-    top: 20px;
-    left: -111px;
     color: #AD8E3D;
     font-size: 12px;
+    position: relative;
+    top: -10px;
 }
 .logo{
     position: relative;
-    top: -10px;
+    top: 10px;
     text-align: left;
 }
 .logo-name{
     font-size: 16px;
     font-weight: 600;
+}
+.logo-img{
+    position: relative;
+    top: -10px;
 }
 .nav-link{
     color: #AD8E3D;
