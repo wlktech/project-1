@@ -1,9 +1,212 @@
+const date = new Date();
+let month = date.getMonth();
+let day = date.getDate();
+let year = date.getFullYear();
+    switch (month) {
+        case 0:
+          month = "JAN";
+          break;
+        case 1:
+          month = "FEB";
+          break;
+        case 2:
+           month = "MAR";
+          break;
+        case 3:
+          month = "APR";
+          break;
+        case 4:
+          month = "MAY";
+          break;
+        case 5:
+          month = "JUNE";
+          break;
+        case 6:
+          month = "JUL";
+          break;
+        case 7:
+          month = "AUG";
+          break;
+        case 8:
+          month = "SEP";
+          break;
+        case 9:
+          month = "OCT";
+          break;
+        case 10:
+          month = "NOV";
+          break;
+        case 11:
+          month = "DEC";
+          break;
+      }
+// console.log(day, "/", month, "/", year);
+// $("#checkIn").val(year, "/", month, "/", day);
+
+// booking
+const guestBtn = document.querySelector("#guests-input-btn"),
+	guestOptions = document.querySelector("#guests-input-options"),
+	adultsSubsBtn = document.querySelector("#adults-subs-btn"),
+	adultsAddBtn = document.querySelector("#adults-add-btn"),
+	childrenSubsBtn = document.querySelector("#children-subs-btn"),
+	childrenAddBtn = document.querySelector("#children-add-btn"),
+	adultsCountEl = document.querySelector("#guests-count-adults"),
+	childrenCountEl = document.querySelector("#guests-count-children");
+let maxNumGuests = 15,
+	isGuestInputOpen = false,
+	adultsCount = 1,
+	childrenCount = 0;
+updateValues();
+guestBtn.addEventListener('click', function (e) {
+	if (isGuestInputOpen) {
+		guestBtn.classList.remove("open");
+		guestOptions.classList.remove("open");
+	} else {
+		guestBtn.classList.add("open");
+		guestOptions.classList.add("open");
+	}
+	isGuestInputOpen = isGuestInputOpen ? false : true;
+	e.preventDefault();
+});
+adultsAddBtn.addEventListener('click', function () {
+	adultsCount = addValues(adultsCount);
+	updateValues();
+});
+adultsSubsBtn.addEventListener('click', function () {
+	adultsCount = substractValues(adultsCount, 1);
+	updateValues();
+});
+childrenAddBtn.addEventListener('click', function () {
+	childrenCount = addValues(childrenCount);
+	updateValues();
+});
+childrenSubsBtn.addEventListener('click', function () {
+	childrenCount = substractValues(childrenCount, 0);
+	updateValues();
+});
+
+function calcTotalGuests() {
+	return adultsCount + childrenCount;
+}
+
+function addValues(count) {
+	return (calcTotalGuests() < maxNumGuests) ? count + 1 : count;
+}
+
+function substractValues(count, min) {
+	return (count > min) ? count - 1 : count;
+}
+
+function updateValues() {
+	let btnText = `${adultsCount} Adults`;
+	btnText += (childrenCount > 0) ? `, ${childrenCount} Children` : '';
+	guestBtn.innerHTML = btnText;
+	adultsCountEl.innerHTML = adultsCount;
+	childrenCountEl.innerHTML = childrenCount;
+	if (adultsCount == 1) {
+		adultsSubsBtn.classList.add("disabled");
+	} else {
+		adultsSubsBtn.classList.remove("disabled");
+	} if (childrenCount == 0) {
+		childrenSubsBtn.classList.add("disabled");
+	} else {
+		childrenSubsBtn.classList.remove("disabled");
+	} if (calcTotalGuests() == maxNumGuests) {
+		adultsAddBtn.classList.add("disabled");
+		childrenAddBtn.classList.add("disabled");
+	} else {
+		adultsAddBtn.classList.remove("disabled");
+		childrenAddBtn.classList.remove("disabled");
+	}
+}
+
+
+
+
+
+//  Scroll to top for room.html
+// Get the button:
+let mybutton1 = document.getElementById("myBtn1");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction1()};
+
+function scrollFunction1() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton1.style.display = "block";
+  } else {
+    mybutton1.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction1() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+//  Scroll to top for about.html
+// Get the button:
+let mybutton2 = document.getElementById("myBtn2");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction2()};
+
+function scrollFunction2() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton2.style.display = "block";
+  } else {
+    mybutton2.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction2() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+//  Scroll to top for service.html
+// Get the button:
+let mybutton3 = document.getElementById("myBtn3");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction3()};
+
+function scrollFunction3() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton3.style.display = "block";
+  } else {
+    mybutton3.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction3() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+
+
+
+// Popup CHat Window
+function openForm() {
+	document.getElementById("myForm").style.display = "block";
+  }
+  
+function closeForm() {
+	document.getElementById("myForm").style.display = "none";
+}
+
+//slick
 $(document).ready(function () {
     $('.responsive').slick({
         dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
@@ -35,485 +238,40 @@ $(document).ready(function () {
           }
         ]
       });
-
-      $('#all').click(function(){
-        $('.foam').show('slow');
-        $('.fabric').show('slow');
-        $('.polyester').show('slow');
-        $('.diffusor').show('slow');
-
-        $('#all').addClass('active');
-        $('#foam').removeClass('active');
-        $('#fabric').removeClass('active');
-        $('#polyester').removeClass('active');
-        $('#diffusor').removeClass('active');
-    })
-    $('#foam').click(function(){
-        $('.foam').show('slow');
-        $('.fabric').hide('slow');
-        $('.polyester').hide('slow');
-        $('.diffusor').hide('slow');
-
-        $('#all').removeClass('active');
-        $('#foam').addClass('active');
-        $('#fabric').removeClass('active');
-        $('#polyester').removeClass('active');
-        $('#diffusor').removeClass('active');
-    })
-    $('#fabric').click(function(){
-        $('.foam').hide('slow');
-        $('.fabric').show('slow');
-        $('.polyester').hide('slow');
-        $('.diffusor').hide('slow');
-
-        $('#all').removeClass('active');
-        $('#foam').removeClass('active');
-        $('#fabric').addClass('active');
-        $('#polyester').removeClass('active');
-        $('#diffusor').removeClass('active');
-    })
-    $('#polyester').click(function(){
-        $('.foam').hide('slow');
-        $('.fabric').hide('slow');
-        $('.polyester').show('slow');
-        $('.diffusor').hide('slow');
-
-        $('#all').removeClass('active');
-        $('#foam').removeClass('active');
-        $('#fabric').removeClass('active');
-        $('#polyester').addClass('active');
-        $('#diffusor').removeClass('active');
-    })
-    $('#diffusor').click(function(){
-        $('.foam').hide('slow');
-        $('.fabric').hide('slow');
-        $('.polyester').hide('slow');
-        $('.diffusor').show('slow');
-
-        $('#all').removeClass('active');
-        $('#foam').removeClass('active');
-        $('#fabric').removeClass('active');
-        $('#polyester').removeClass('active');
-        $('#diffusor').addClass('active');
-    })
-    
-
-//pyramid foam
-    $('#pb50').show();
-    $('#pg50').hide();
-    $('#pr50').hide();
-    $("#pColor0").click(function() {
-      // Change src attribute of image
-      $("#p1").attr("src", "./assets/img/promo1.jpg");
-      $('.pcolor').text('Black');
-      $('#pb50').show();
-      $('#pg50').hide();
-      $('#pr50').hide();
-    });
-    $("#pColor1").click(function() {
-      // Change src attribute of image
-      $("#p1").attr("src", "./assets/img/pb.jpg");
-      $('.pcolor').text('Black');
-      $('#pb50').show();
-      $('#pg50').hide();
-      $('#pr50').hide();
-    });
-    $("#pColor2").click(function() {
-      // Change src attribute of image
-      $("#p1").attr("src", "./assets/img/pg.jpg");
-      $('.pcolor').text('Grey');
-      $('#pb50').hide();
-      $('#pg50').show();
-      $('#pr50').hide();
-    });
-    $("#pColor3").click(function() {
-      // Change src attribute of image
-      $("#p1").attr("src", "./assets/img/pr.jpg");
-      $('.pcolor').text('Red');
-      $('#pb50').hide();
-      $('#pg50').hide();
-      $('#pr50').show();
-    });
-
-
-//wedge foam
-$('#wb50').show();
-$('#wg50').hide();
-$('#wr50').hide();
-$("#wColor0").click(function() {
-  // Change src attribute of image
-  $("#w1").attr("src", "./assets/img/promo2.jpg");
-  $('.wcolor').text('Black');
-  $('#wb50').show();
-  $('#wg50').hide();
-  $('#wr50').hide();
-});
-$("#wColor1").click(function() {
-  // Change src attribute of image
-  $("#w1").attr("src", "./assets/img/products/wedgered.jpg");
-  $('.wcolor').text('Red');
-  $('#wb50').hide();
-  $('#wg50').hide();
-  $('#wr50').show();
-});
-$("#wColor2").click(function() {
-  // Change src attribute of image
-  $("#w1").attr("src", "./assets/img/products/greywedge.jpg");
-  $('.wcolor').text('Grey');
-  $('#wb50').hide();
-  $('#wg50').show();
-  $('#wr50').hide();
 });
 
+//Read More Read Less2
+jQuery(function ($) {
+	function AddReadMore() {
+	   //This limit you can set after how much characters you want to show Read More.
+	   var carLmt = 50;
+	   // Text to show when text is collapsed
+	   var readMoreTxt = " ...read more";
+	   // Text to show when text is expanded
+	   var readLessTxt = " read less";
+ 
+ 
+	   //Traverse all selectors with this class and manipulate HTML part to show Read More
+	   $(".add-read-more1").each(function () {
+		  if ($(this).find(".first-section1").length)
+			 return;
+ 
+		  var allstr = $(this).text();
+		  if (allstr.length > carLmt) {
+			 var firstSet = allstr.substring(0, carLmt);
+			 var secdHalf = allstr.substring(carLmt, allstr.length);
+			 var strtoadd = firstSet + "<span class='second-section1'>" + secdHalf + "</span><span class='read-more1'  title='Click to Show More'>" + readMoreTxt + "</span><span class='read-less1' title='Click to Show Less'>" + readLessTxt + "</span>";
+			 $(this).html(strtoadd);
+		  }
+	   });
+ 
+	   //Read More and Read Less Click Event binding
+	   $(document).on("click", ".read-more1,.read-less1", function () {
+		  $(this).closest(".add-read-more1").toggleClass("show-less-content1 show-more-content1");
+	   });
+	}
+ 
+	AddReadMore();
+ });
 
 
-
-//diffusor foam
-$('#db50').show();
-$('#dg50').hide();
-$('#dr50').hide();
-
-$("#dColor0").click(function() {
-  // Change src attribute of image
-  $("#d1").attr("src", "./assets/img/promo5.jpg");
-  $('.dcolor').text('Black');
-  $('#db50').show();
-  $('#dg50').hide();
-  $('#dr50').hide();
-});
-$("#dColor1").click(function() {
-  // Change src attribute of image
-  $("#d1").attr("src", "./assets/img/products/reddiffusor.jpg");
-  $('.dcolor').text('Red');
-  $('#db50').hide();
-  $('#dg50').hide();
-  $('#dr50').show();
-});
-$("#dColor2").click(function() {
-  // Change src attribute of image
-  $("#d1").attr("src", "./assets/img/products/greydiffusor.jpg");
-  $('.dcolor').text('Grey');
-  $('#db50').hide();
-  $('#dg50').show();
-  $('#dr50').hide();
-});
-
-
-
-
-//eggcrate foam
-$("#eColor0").click(function() {
-  // Change src attribute of image
-  $("#e1").attr("src", "./assets/img/promo4.jpg");
-});
-
-
-//fabric black panel
-  $('#fb60').show();
-  $('#fb120').hide();
-$("#fabric1").click(function() {
-  // Change src attribute of image
-  $("#f1").attr("src", "./assets/img/products/WE-08 Black.png");
-  $('.fbsize').text('60x60x6cm');
-  $("#price1").text("Ks30,000");
-  $('#fb60').show();
-  $('#fb120').hide();
-});
-$("#fabric2").click(function() {
-  // Change src attribute of image
-  $("#f1").attr("src", "./assets/img/products/fabricSize1.jpg");
-  $('.fbsize').text('60x60x6cm');
-  $("#price1").text("Ks30,000");
-  $('#fb60').show();
-  $('#fb120').hide();
-});
-$("#fabric3").click(function() {
-  // Change src attribute of image
-  $("#f1").attr("src", "./assets/img/products/fabricSize2.jpg");
-  $('.fbsize').text('60x120x6cm');
-  $("#price1").text("Ks60,000");
-  $('#fb60').hide();
-  $('#fb120').show();
-});
-
-
-
-//fabric dark grey panel
-$('#fdg60').show();
-$('#fdg120').hide();
-$("#darkgrey0").click(function() {
-  // Change src attribute of image
-  $("#f2").attr("src", "./assets/img/products/Dark Grey.png");
-  $("#price2").text("Ks30,000");
-  $('.fbsize').text('60x60x6cm');
-  $('#fdg60').show();
-  $('#fdg120').hide();
-});
-$("#darkgrey1").click(function() {
-  // Change src attribute of image
-  $("#f2").attr("src", "./assets/img/products/fabricSize1.jpg");
-  $("#price2").text("Ks30,000");
-  $('.fbsize').text('60x60x6cm');
-  $('#fdg60').show();
-  $('#fdg120').hide();
-});
-$("#darkgrey2").click(function() {
-  // Change src attribute of image
-  $("#f2").attr("src", "./assets/img/products/fabricSize2.jpg");
-  $("#price2").text("Ks60,000");
-  $('.fbsize').text('60x120x6cm');
-  $('#fdg60').hide();
-  $('#fdg120').show();
-});
-
-
-
-//fabric light grey panel
-$('#flg60').show();
-$('#flg120').hide();
-$("#lightgrey0").click(function() {
-  // Change src attribute of image
-  $("#f3").attr("src", "./assets/img/products/light grey.png");
-  $("#price3").text("Ks30,000");
-  $('.fbsize').text('60x60x6cm');
-  $('#flg60').show();
-  $('#flg120').hide();
-});
-$("#lightgrey1").click(function() {
-  // Change src attribute of image
-  $("#f3").attr("src", "./assets/img/products/fabricSize1.jpg");
-  $("#price3").text("Ks30,000");
-  $('.fbsize').text('60x60x6cm');
-  $('#flg60').show();
-  $('#flg120').hide();
-});
-$("#lightgrey2").click(function() {
-  // Change src attribute of image
-  $("#f3").attr("src", "./assets/img/products/fabricSize2.jpg");
-  $("#price3").text("Ks60,000");
-  $('.fbsize').text('60x120x6cm');
-  $('#flg60').hide();
-  $('#flg120').show();
-});
-
-
-
-
-//fabric beige panel
-$('#fbg60').show();
-$('#fbg120').hide();
-$("#beige0").click(function() {
-  // Change src attribute of image
-  $("#f4").attr("src", "./assets/img/products/beige.png");
-  $("#price4").text("Ks30,000");
-  $('.fbsize').text('60x60x6cm');
-  $('#fbg60').show();
-  $('#fbg120').hide();
-});
-$("#beige1").click(function() {
-  // Change src attribute of image
-  $("#f4").attr("src", "./assets/img/products/fabricSize1.jpg");
-  $("#price4").text("Ks30,000");
-  $('.fbsize').text('60x60x6cm');
-  $('#fbg60').show();
-  $('#fbg120').hide();
-});
-$("#beige2").click(function() {
-  // Change src attribute of image
-  $("#f4").attr("src", "./assets/img/products/fabricSize2.jpg");
-  $("#price4").text("Ks60,000");
-  $('.fbsize').text('60x120x6cm');
-  $('#fbg60').hide();
-  $('#fbg120').show();
-});
-
-
-//Polyester Black panel
-$("#pe10").click(function() {
-  // Change src attribute of image
-  $("#peb1").attr("src", "./assets/img/products/blackpoly.jpg");
-
-});
-$("#pe11").click(function() {
-  // Change src attribute of image
-  $("#peb1").attr("src", "./assets/img/products/hexagonBackground.jpg");
-
-});
-$("#pe12").click(function() {
-  // Change src attribute of image
-  $("#peb1").attr("src", "./assets/img/products/detailpoly.avif");
-
-});
-
-//Polyester Brown panel
-$("#pe20").click(function() {
-  // Change src attribute of image
-  $("#pebr1").attr("src", "./assets/img/products/brownpoly.jpg");
-
-});
-$("#pe21").click(function() {
-  // Change src attribute of image
-  $("#pebr1").attr("src", "./assets/img/products/hexagonBackground.jpg");
-
-});
-$("#pe22").click(function() {
-  // Change src attribute of image
-  $("#pebr1").attr("src", "./assets/img/products/detailpoly.avif");
-
-});
-
-//Polyester Lightgrey panel
-$("#pe30").click(function() {
-  // Change src attribute of image
-  $("#pelg1").attr("src", "./assets/img/products/lightgreypoly.jpg");
-
-});
-$("#pe31").click(function() {
-  // Change src attribute of image
-  $("#pelg1").attr("src", "./assets/img/products/hexagonBackground.jpg");
-
-});
-$("#pe32").click(function() {
-  // Change src attribute of image
-  $("#pelg1").attr("src", "./assets/img/products/detailpoly.avif");
-
-});
-
-//Polyester Red panel
-$("#pe40").click(function() {
-  // Change src attribute of image
-  $("#per1").attr("src", "./assets/img/products/redpoly.jpg");
-
-});
-$("#pe41").click(function() {
-  // Change src attribute of image
-  $("#per1").attr("src", "./assets/img/products/hexagonBackground.jpg");
-
-});
-$("#pe42").click(function() {
-  // Change src attribute of image
-  $("#per1").attr("src", "./assets/img/products/detailpoly.avif");
-
-});
-
-//Wooden Diffusor panel
-$("#w11").click(function() {
-  // Change src attribute of image
-  $("#w10").attr("src", "./assets/img/products/w1.jpg");
-
-});
-$("#w12").click(function() {
-  // Change src attribute of image
-  $("#w10").attr("src", "./assets/img/products/w2.1.png");
-
-});
-
-//Wooden Diffusor panel
-$("#w21").click(function() {
-  // Change src attribute of image
-  $("#w20").attr("src", "./assets/img/products/w2.png");
-
-});
-$("#w22").click(function() {
-  // Change src attribute of image
-  $("#w20").attr("src", "./assets/img/products/w1.1.jpg");
-
-});
-
-//Wooden Diffusor panel
-$("#w31").click(function() {
-  // Change src attribute of image
-  $("#w30").attr("src", "./assets/img/products/w5.jpg");
-
-});
-$("#w32").click(function() {
-  // Change src attribute of image
-  $("#w30").attr("src", "./assets/img/products/w5.1.jpg");
-
-});
-$("#w33").click(function() {
-  // Change src attribute of image
-  $("#w30").attr("src", "./assets/img/products/w5.2.webp");
-
-});
-
-//Wooden Diffusor panel
-$("#w41").click(function() {
-  // Change src attribute of image
-  $("#w40").attr("src", "./assets/img/products/w6.jpg");
-
-});
-$("#w42").click(function() {
-  // Change src attribute of image
-  $("#w40").attr("src", "./assets/img/products/w6.1.webp");
-
-});
-$("#w43").click(function() {
-  // Change src attribute of image
-  $("#w40").attr("src", "./assets/img/products/w6.2.jpg");
-
-});
-
-//Asking for delivery information
-$("#deliInfo").hide('slow');
-$("#buy").click(function(){
-  $("#deliInfo").show('slow');
-})
-
-
-
-//AddToCart System Start
-count();
-$('.addToCart').click(function(e){
-  e.preventDefault();
-  let id = $(this).data('id');
-  let name = $(this).data('name');
-  let description = $(this).data('description');
-  //changeColor
-  // let description = $("input[type='radio']:checked").val();
-  // alert(description)
-  let price = $(this).data('price');
-  console.log(id, name, description, price);
-
-  //create an obj
-  let items = {
-      item_id : id,
-      item_name : name, 
-      item_description : description,
-      item_price : price,
-      qty : 1
-  }
-
-  //create localstorage
-  let itemString = localStorage.getItem('shops');
-  let itemArray;
-  if(itemString == null){
-      itemArray = [];
-  }else{
-      itemArray = JSON.parse(itemString);
-  }
-
-  //if item is same, qty will be plus 1.
-  let status = false;
-  $.each(itemArray, function(i, v){
-      if(id == v.item_id){
-          status = true;
-          v.qty++;
-      }
-  })
-
-  //if item is not same, another item will be added.
-  if(status == false){
-      //data place in array
-      itemArray.push(items);
-  }
-
-  //convert data into string
-  let itemData = JSON.stringify(itemArray);
-  localStorage.setItem('shops', itemData);
-  count();
-
-})
-//AddToCart System End
-
-})
