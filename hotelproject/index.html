@@ -221,7 +221,7 @@
       <div class="carousel-item active">
         <img src="./assets/img/s1.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block text-center m-auto">
-            <div class="home-text w-100 m-auto py-5 rounded">
+            <div class="home-text w-50 m-auto py-5 rounded">
                 <h3>Welcome To Royal Palace Hotel (Bagan)</h3>
                 <p>Stay & Enjoy The View of Bagan Traditions</p>
                 <button class="btn btn-gold"><a href="#book" class="text-decoration-none text-white">FIND OUT MORE</a></button>
@@ -231,7 +231,7 @@
       <div class="carousel-item">
         <img src="./assets/img/s2.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block text-center m-auto">
-            <div class="home-text w-100 m-auto py-5 rounded">
+            <div class="home-text w-50 m-auto py-5 rounded">
                 <h3>Welcome To Royal Palace Hotel (Bagan)</h3>
                 <p>Stay & Enjoy The View of Bagan Traditions</p>
                 <button class="btn btn-gold"><a href="#book" class="text-decoration-none text-white">FIND OUT MORE</a></button>
@@ -241,7 +241,7 @@
       <div class="carousel-item">
         <img src="./assets/img/s3.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block text-center m-auto">
-            <div class="home-text w-100 m-auto py-5 rounded">
+            <div class="home-text w-50 m-auto py-5 rounded">
                 <h3>Welcome To Royal Palace Hotel (Bagan)</h3>
                 <p>Stay & Enjoy The View of Bagan Traditions</p>
                 <button class="btn btn-gold"><a href="#book" class="text-decoration-none text-white">FIND OUT MORE</a></button>
@@ -249,16 +249,21 @@
         </div>
       </div>
     </div>
-    <i class="fas fa-angle-left left_arrow" data-bs-target="#carouselExample" data-bs-slide="prev"></i>
-    <i class="fas fa-angle-right right_arrow" data-bs-target="#carouselExample" data-bs-slide="next"></i>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
-<p class="book-text" id="book">booking navbar</p>
 <!-- home end -->
 
 <!-- Booking Start -->
-<div class="booking my-5">
+<div class="booking" id="booking">
     <form action="book.html" name="booking" method="get">
-        <div class="container bg-dark py-3 px-5 goldText rounded shadow-lg">
+        <div class="container bg-dark py-3 px-5 goldText rounded">
             <div class="row">
                 <div class="col-6 col-lg-3 my-3">
                     <div>
@@ -305,7 +310,7 @@
 <!-- Booking End -->
 
 <!-- Intro start-->
-<div class="container-fluid bg-light py-5" id="about">
+<div class="container-fluid bg-white py-5" id="about">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 my-4 leftin">
@@ -344,7 +349,7 @@
 <!-- Hotel Bedroom end -->
 
 <!-- Reviews Start -->
-<div class="container-fluid bg-light py-5" style="overflow: hidden;">
+<div class="container-fluid bg-white py-5" style="overflow: hidden;">
     <div class="container">
         <div class="row">
             <div class="col-xl-3 my-5 leftin">
@@ -460,7 +465,7 @@
 <!-- Reviews End -->
 
 <!-- Bagan in places start -->
-<div class="container-fluid bg-light py-5 my-5">
+<div class="container-fluid bg-white py-5 my-5">
     <div class="container">
         <h3 class="zoomin">Places in Bagan City</h3>
         <div class="row my-4">
@@ -601,9 +606,7 @@
           
               if (elementTop < windowHeight - elementVisible) {
                 reveals[i].classList.add("active");
-              } else {
-                reveals[i].classList.remove("active");
-              }
+              } 
             }
 
             var leftin = document.querySelectorAll(".leftin");
@@ -615,9 +618,7 @@
           
               if (elementTop < windowHeight - elementVisible) {
                 leftin[i].classList.add("Leftin");
-              } else {
-                leftin[i].classList.remove("Leftin");
-              }
+              } 
             }
           
 
@@ -630,8 +631,6 @@
           
               if (elementTop < windowHeight - elementVisible) {
                 rightin[i].classList.add("Rightin");
-              } else {
-                rightin[i].classList.remove("Rightin");
               }
             }
         }
